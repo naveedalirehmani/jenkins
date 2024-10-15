@@ -15,14 +15,14 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy to Nginx on EC2') {
-        //     steps {
-        //         script {
-        //             // Run the container on EC2
-        //             sh 'docker-compose down'
-        //             sh 'docker-compose up -d'
-        //         }
-        //     }
-        // }
+        stage('Deploy to Nginx on EC2') {
+            steps {
+                script {
+                    // Run the container on EC2
+                    sh 'docker-compose down'
+                    sh 'docker-compose up -d'
+                }
+            }
+        }
     }
 }
