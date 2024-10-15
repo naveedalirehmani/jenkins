@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'docker-compose up --build -d'
+                    sh 'sudo docker-compose up --build -d'
                 }
             }
         }
@@ -19,8 +19,8 @@ pipeline {
             steps {
                 script {
                     // Run the container on EC2
-                    sh 'docker-compose down'
-                    sh 'docker-compose up -d'
+                    sh 'sudo docker-compose down'
+                    sh 'sudo docker-compose up -d'
                 }
             }
         }
