@@ -4,6 +4,6 @@ services:
     image: nginx:alpine
     container_name: simple-nginx
     ports:
-      - "8080:80"
+      - "4040:80"
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html
