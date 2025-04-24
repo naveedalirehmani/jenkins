@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  server:
+    build:
+      context: ../server
+    container_name: simple-server
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    restart: always
