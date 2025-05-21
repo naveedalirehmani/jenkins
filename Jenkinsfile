@@ -37,11 +37,11 @@ pipeline {
       steps {
         sshagent(['ec2-ssh-key']) {
           sh """
-          ssh -o StrictHostKeyChecking=no $SSH_USER@$APP_SERVER_IP << EOF
-            docker pull $DOCKER_IMAGE
-            docker rm -f $CONTAINER_NAME || true
-            docker run -d --name $CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE
-          EOF
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$APP_SERVER_IP "
+              docker pull $DOCKER_IMAGE && \
+              docker rm -f $CONTAINER_NAME || true && \
+              docker run -d --name $CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE
+            "
           """
         }
       }
