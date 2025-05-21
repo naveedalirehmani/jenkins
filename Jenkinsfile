@@ -4,7 +4,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = 'naveedalirehmani/hello-world-server'
-    APP_SERVER_IP = 'your.app.server.ip'
+    APP_SERVER_IP = '13.201.228.171'
     SSH_USER = 'ubuntu'
     CONTAINER_NAME = 'hello-app'
   }
