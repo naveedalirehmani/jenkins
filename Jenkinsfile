@@ -4,7 +4,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = 'naveedalirehmani/hello-world-server'
-    APP_SERVER_IP = '13.201.228.171'
+    APP_SERVER_IP = '13.127.251.7'
     SSH_USER = 'ubuntu'
     CONTAINER_NAME = 'hello-app'
   }
@@ -40,7 +40,7 @@ pipeline {
             ssh -o StrictHostKeyChecking=no $SSH_USER@$APP_SERVER_IP "
               docker pull $DOCKER_IMAGE && \
               docker rm -f $CONTAINER_NAME || true && \
-              docker run -d --name $CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE
+              docker run -d --name $CONTAINER_NAME --publish 3000:3000 $DOCKER_IMAGE
             "
           """
         }
